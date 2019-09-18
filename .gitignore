@@ -1,0 +1,7 @@
+venv
+.idea
+.env
+TODO.txt
+anevolina/__pycache__/
+anevolina/migrations/
+anevolina/static/
