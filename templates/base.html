@@ -1,16 +1,40 @@
 {% load bootstrap3 %}
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    {% bootstrap_css %}
 
+    {% bootstrap_css %}
+    <link rel="stylesheet" type = "text/css" href="{% static 'css/base.css' %}" />
     <title>My portfolio</title>
+    {% block head_content %}
+    {% endblock head_content %}
 </head>
 
 <body>
-{% block page_content %}
+<a href="{% url 'index' %}">
+    <nav class="navbar navbar-default row">
+        <div class="container">
+        <div class="navbar-header my_header">
+            <img class="my-photo" alt="Brand" src="{% static 'img/me.jpg' %}">
+        </div>
 
-{% endblock %}
+       <div class="navbar-header my_header">
+            <h4 style="margin-left: 10px;">all projects</h4>
+       </div>
+        </div>
+
+    </nav>
+</a>
+{% block base_content %}
+{% endblock base_content%}
+<div class="panel-footer">
+    <div class="container">
+        you can contact me via email: <a href="mailto:anevolina@pm.me">anevolina@pm.me</a>
+    </div>
+</div>
+
 </body>
