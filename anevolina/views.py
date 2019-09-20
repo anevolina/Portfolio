@@ -1,8 +1,12 @@
-from django.shortcuts import render
-from anevolina.models import Project
-from . import forms
 from googletrans import Translator
 import logging
+
+from django.shortcuts import render
+from anevolina.models import Project
+from portfolio.settings import STATICFILES_DIRS
+from . import forms
+
+# Import my modules
 from anevolina.modules.converter import ARConverter
 
 
@@ -14,6 +18,7 @@ def index(request, project=None):
         logging.INFO('Project without a view was detected: {}-{}'.format(project.pk, project.title))
 
     projects = Project.objects.all()
+
     context = {'projects': projects}
 
     return render(request, 'anevolina/index.html', context)
@@ -37,7 +42,7 @@ def words_game(request, project):
     return render(request, 'anevolina/words_game.html', context)
 
 def converter(request, project):
-    conv_recipe = 'Converted text'
+    conv_recipe = 'converted text\'s here'
     English = True
 
 
@@ -69,5 +74,6 @@ def converter(request, project):
     return render(request, 'anevolina/converter.html', context)
 
 def blog(request, project):
+
     context = {'project': project}
     return render(request, 'project.html', context)

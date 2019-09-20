@@ -1,15 +1,30 @@
 {% extends 'project.html'%}
-{% load bootstrap3 %}
+
 {% load static %}
 
 
 {% block head_content %}
 
-    <link rel="stylesheet" type = "text/css" href="{% static 'css/converter.css' %}" />
+<!--    <link rel="stylesheet" type = "text/css" href="{% static 'css/converter.css' %}" />-->
+<!--    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">-->
+
 
 {% endblock head_content %}
 
 {% block project_content%}
+<div class="container">
+    <p class="my-2">
+        This project implemented as a telegram bot at
+        <a class="my-a" target="_blank" href="https://telegram.me/WordsGameAnaBot">
+            <i class="fab fa-telegram mx-2"></i>WordsGameAnaBot</a>.
+        And this is a quick video about how it works.
+    </p>
 
+    <div class="videoWrapper">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/xmx0REsUmXY?mute=1&color=transparent" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
 
+    <script src="https://kit.fontawesome.com/6745ae2bbd.js" crossorigin="anonymous"></script>
 {% endblock project_content%}
+

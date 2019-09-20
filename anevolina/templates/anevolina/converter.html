@@ -13,7 +13,6 @@
 
     <div class="container">
 <!--        <h1 class="header   ">Converter for recipes from the Imperial system of measurements to metric</h1>-->
-        <hr style="width: 300px; margin-bottom: 30px;"/>
         <div>
             <form name="sourceForm" action="{% url 'project_details' project.pk %}" method = POST>
                 {% csrf_token %}
@@ -32,16 +31,16 @@
                 <div class="row">
                     <div class="form-check form-check-inline col-md-6 col-sm-6 col-xs-12">
                       <input class="form-check-input" type="radio" name="to_translate" id="inlineRadio1" value="EN" {% if En %} checked{% endif %}>
-                      <label class="form-check-label" for="inlineRadio1">Remain in English</label>
+                      <label class="form-check-label" for="inlineRadio1">remain in English</label>
                     </div>
                     <div class="form-check form-check-inline col-md-6 col-sm-6 col-xs-12">
                       <input class="form-check-input" type="radio" name="to_translate" id="inlineRadio2" value="RU" {% if not En %} checked{% endif %}>
-                      <label class="form-check-label" for="inlineRadio2">Translate to Russian</label>
+                      <label class="form-check-label" for="inlineRadio2">translate to Russian</label>
                     </div>
                 </div>
                     <div class="row">
                         <div class="col-md-12">
-                                <button class="btn btn-primary btn-block my-btn" type="submit">Convert</button>
+                                <button class="btn btn-primary btn-block my-btn" type="submit">convert</button>
                         </div>
 
                     </div>

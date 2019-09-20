@@ -39,7 +39,7 @@ class ARConverter:
         self.celsius_names = ['c', 'celsius']
 
         # Download the base with emojies. Disable for tests
-        demoji.download_codes()
+        # demoji.download_codes()
 
 
     def process_line(self, line):
