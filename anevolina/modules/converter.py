@@ -7,6 +7,7 @@ and finishing with cups/tsp/Tbsp to grams
 import re
 import json
 import os.path
+import logging
 import demoji
 
 
@@ -21,6 +22,8 @@ class ARConverter:
 
         - self.ml_measures defines volume of different tools in ml
         """
+
+        self.logger = self.set_logger()
 
         self.coefficients = dict()
         file_dir = os.path.dirname(os.path.abspath(__file__))
@@ -41,6 +44,19 @@ class ARConverter:
         # Download the base with emojies. Disable for tests
         # demoji.download_codes()
 
+    def set_logger(self):
+        logger = logging.getLogger('ARConverter')
+        logger.setLevel(logging.INFO)
+
+        os.mkdir('log')
+
+        file_handler = logging.FileHandler('log/converter_log.log')
+        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+
+        return logger
 
     def process_line(self, line):
         """The main procedure - handles with an initial line, call all procedures and returns lines with replaced
@@ -421,7 +437,8 @@ class ARConverter:
             grams = self.calculate_grams_if_item(item, cups, words)
             return [grams, True]
         else:
-            print('INVALID PRODUCT: ', *words)
+            message = 'INVALID PRODUCT: ' + ' '.join(words)
+            self.logger.info(message)
             return [cups, False]
 
     def calculate_grams_if_item(self, item, cups, words):
@@ -623,7 +640,8 @@ class ARConverter:
                     result += round(int(fraction_numbers[0])/int(fraction_numbers[1]), 2)
                     return result
                 except:
-                    print('Error in fraction', string_numbers[i])
+                    message = 'Error in fraction' + str(string_numbers[i])
+                    self.logger.info(message)
                     pass
             elif i > 0:                 # get rid of the previous part of double integer in a case '1 16 oz can'
                 result = int(string_numbers[i])

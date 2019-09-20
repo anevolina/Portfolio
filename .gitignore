@@ -3,5 +3,7 @@ venv
 .env
 TODO.txt
 anevolina/__pycache__/
+anevolina/modules/__pycache__
 anevolina/migrations/
 anevolina/static/
+log
