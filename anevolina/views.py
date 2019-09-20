@@ -75,5 +75,6 @@ def converter(request, project):
 
 def blog(request, project):
 
+
     context = {'project': project}
-    return render(request, 'project.html', context)
+    return render(request, 'anevolina/this_blog.html', context)

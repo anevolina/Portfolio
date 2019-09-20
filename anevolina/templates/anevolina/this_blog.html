@@ -1,0 +1,16 @@
+{% extends 'project.html'%}
+{% load static %}
+{% block head_content %}
+
+
+{% endblock head_content %}
+
+{% block project_content%}
+<div class="container">
+    <p>
+        All of this was made from scratch. So, there are no accidental elements left from fancy templates - all features have their own purpose. For example, have you noticed this little GitHub icon?
+        <img class="in-text mx-2" src="{% static 'img/github.jpg' %}" alt="">
+        You can see a repo with source code for each project when you click there.
+    </p>
+</div>
+{% endblock project_content%}
