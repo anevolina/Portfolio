@@ -4,5 +4,4 @@ class ConverterForm(forms.Form):
     class Meta:
         fields = ['recipe']
 
-    recipe = forms.CharField(label='', widget=forms.Textarea())
-
+    recipe = forms.CharField(label='', widget=forms.Textarea(), required=False)

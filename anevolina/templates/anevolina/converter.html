@@ -26,6 +26,7 @@
                     <div class="col-md-6 col-sm-6 col-xs-12 my-column right-column">
                          <h4 class="col-header">Metric</h4>
                         {{translation|linebreaks}}
+
                     </div>
                  </div>
                 <div class="row">
@@ -44,12 +45,35 @@
                         </div>
 
                     </div>
+                <div>
+                    <p class="my-2">
+                        ...and for your convenience, I uploaded a few recipes to show how it works.
+                    </p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button class="btn btn-primary btn-block my-btn" name="ex" value="1" type="submit">#1 example</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary btn-block my-btn" name="ex" value="2" type="submit">#2 example</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary btn-block my-btn" name="ex" value="3" type="submit">#3 example</button>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary btn-block my-btn" name="ex" value="4" type="submit">#4 example</button>
+                        </div>
+
+                    </div>
+                </div>
         </form>
 
     </div>
     </div>
 {% bootstrap_javascript %}
  <script>
+     var recipe = `{{recipe}}`;
+     console.log(recipe);
+
     function attachSubmitByPaste() {
         const textarea = document.getElementById('id_recipe');
         textarea.addEventListener('paste', function() {
@@ -60,8 +84,14 @@
 
         })
     }
+    
+    function getExample(msg) {
+
+        document.getElementById("id_recipe").value = msg;
+    }
 
     attachSubmitByPaste();
+    getExample(recipe)
  </script>
 
 {% endblock project_content%}
