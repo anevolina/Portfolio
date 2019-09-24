@@ -71,9 +71,6 @@
     </div>
 {% bootstrap_javascript %}
  <script>
-     var recipe = `{{recipe}}`;
-     console.log(recipe);
-
     function attachSubmitByPaste() {
         const textarea = document.getElementById('id_recipe');
         textarea.addEventListener('paste', function() {
@@ -85,13 +82,13 @@
         })
     }
     
-    function getExample(msg) {
+    function getExample(msg = `{{recipe}}`) {
 
         document.getElementById("id_recipe").value = msg;
     }
 
     attachSubmitByPaste();
-    getExample(recipe)
+    getExample()
  </script>
 
 {% endblock project_content%}

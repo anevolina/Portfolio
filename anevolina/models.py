@@ -17,4 +17,3 @@ class Project(models.Model):
         self.image = self.image.replace(settings.STATICFILES_DIRS[0], '')
 
         super().save(*args, **kwargs)
-
