@@ -15,16 +15,16 @@
 </head>
 
 <body>
-<a href="{% url 'index' %}">
-    <nav class="navbar navbar-default row">
-        <div class="container">
-        <div class="navbar-header my_header">
-            <img class="my-photo" alt="Brand" src="{% static 'img/me.jpg' %}">
-        </div>
+<a class="no-decor" href="{% url 'index' %}">
+    <nav class="navbar navbar-default">
+        <div class="container nav-container">
+            <div class="my-navbar">
+                <img class="my-photo" alt="main photo" src="{% static 'img/me.jpg' %}">
+            </div>
 
-       <div class="navbar-header my_header">
-            <h4 style="margin-left: 10px;">all projects</h4>
-       </div>
+           <div class="my-navbar">
+                <h4 class="mx-4 no-decor">all projects</h4>
+           </div>
         </div>
 
     </nav>
