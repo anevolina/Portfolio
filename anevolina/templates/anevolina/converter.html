@@ -12,7 +12,6 @@
 {% block project_content%}
 
     <div class="container">
-<!--        <h1 class="header   ">Converter for recipes from the Imperial system of measurements to metric</h1>-->
         <div>
             <form name="sourceForm" action="{% url 'project_details' project.pk %}" method = POST>
                 {% csrf_token %}
@@ -20,12 +19,13 @@
                 <div class="row main-container">
                     <div class="col-md-6 col-sm-6 col-xs-12 my-column">
                         <h4 class="col-header">Imperial(American)</h4>
-                        {% bootstrap_form form %}
-
+                                {% bootstrap_form form %}
                     </div>
                     <div class="col-md-6 col-sm-6 col-xs-12 my-column right-column">
                          <h4 class="col-header">Metric</h4>
-                        {{translation|linebreaks}}
+                            <div style="margin-top: 0.5rem">
+                                {{translation|linebreaks}}
+                            </div>
 
                     </div>
                  </div>
@@ -46,7 +46,7 @@
 
                     </div>
                 <div>
-                    <p class="my-2">
+                    <p class="my-3">
                         ...and for your convenience, I uploaded a few recipes to show how it works.
                     </p>
                     <div class="row">
@@ -69,6 +69,7 @@
 
     </div>
     </div>
+
 {% bootstrap_javascript %}
  <script>
     function attachSubmitByPaste() {

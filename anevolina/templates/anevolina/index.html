@@ -2,19 +2,26 @@
 {% load static %}
 
 {% block base_content%}
+
 <div class="container">
 {% for project in projects reversed%}
     <div class="col-md-4">
-            <div class="card mb-2">
-                <a class="my-a" href="{% url 'project_details' project.pk %}"><img class="card-img-top img-responsive" src="{% static project.image %}">
-                <div class="card-body">
+        <div class="card mb-2">
+            <a href="{% url 'project_details' project.pk %}">
+            <img class="card-img-top img-responsive" src="{% static project.image %}"></a>
+            <div class="card-body">
+                <a class="my-a" href="{% url 'project_details' project.pk %}">
                     <h5 class="card-title">{{ project.title|lower }}</h5>
-                    </a>
-                    <p class="card-text">{{ project.description|truncatechars:100 }}</p>
+                </a>
+                <p class="card-text">
+                    {{ project.description|truncatechars:100 }}
+                </p>
 
-                </div>
             </div>
         </div>
+    </div>
 {% endfor %}
 </div>
+
+
 {% endblock base_content%}
