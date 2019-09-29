@@ -127,7 +127,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = ['anevolina/static']
 
 
-
 # Settings for Django Bootstrap3
 
 BOOTSTRAP3 = {
