@@ -30,7 +30,8 @@ def project_details(request, pk):
     switcher = {
         1: blog,
         2: words_game,
-        3: converter
+        3: converter,
+        4: time_manager
     }
 
     func = switcher.get(pk, lambda: index)
@@ -92,3 +93,8 @@ def blog(request, project):
 
     context = {'project': project}
     return render(request, 'anevolina/this_blog.html', context)
+
+def time_manager(request, project):
+
+    context = {'project': project}
+    return render(request, 'anevolina/time_manager.html', context)
